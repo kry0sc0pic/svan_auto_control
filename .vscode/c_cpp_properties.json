@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/kryo/xMo/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/kryo/xMo/src/svan_control/include/**",
+        "/home/kryo/xMo/src/svan_dynamics/include/**",
+        "/home/kryo/xMo/src/svan_estimation/include/**",
+        "/home/kryo/xMo/src/svan_hw/include/**",
+        "/home/kryo/xMo/src/svan_utils/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
