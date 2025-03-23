@@ -71,7 +71,7 @@ def move_right(y_vel=default_y_vel):
     print(f"Moving right with velocity: {y_vel}")
 
 
-def turn_left(yaw_vel=default_yaw_vel):
+def turn_right(yaw_vel=default_yaw_vel):
     reset_movement()
 
     yaw_vel = constrain_velocity(yaw_vel)
@@ -86,7 +86,7 @@ def sleep():
     publisher.publish(key_data)
 
 
-def turn_right(yaw_vel=default_yaw_vel):
+def turn_left(yaw_vel=default_yaw_vel):
     reset_movement()
 
     yaw_vel = constrain_velocity(yaw_vel)
