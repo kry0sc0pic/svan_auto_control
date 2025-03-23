@@ -14,7 +14,7 @@ key_data.data = [4,0,0,0,0,0,0,0,0] # trot gait
 publisher = rospy.Publisher('/svan/io_interface', Float32MultiArray, queue_size=1)
 print("Publisher initialized")
 
-
+# velocity values
 default_x_vel = 0.5
 default_y_vel = 0.5
 default_yaw_vel = 1
