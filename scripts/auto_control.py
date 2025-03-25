@@ -126,22 +126,55 @@ def make_square(x_vel=default_x_vel, yaw_vel=default_yaw_vel, move_time=default_
     
     print("Square pattern completed")
 
+def make_circle(radius=0.8, duration=30):
+    """
+    Make the robot move in a circle with the specified radius.
+    
+    For a circle, we need to move fwd while simultaneously turning.
+    The ratio of fwd vel to turning vel = the radius.
+    
+    Args:
+        radius: Desired radius of the circle in meters (default: 0.8m)
+        duration: How long to move in the circle in seconds (default: 30s)
+    """
+    print(f"Starting circular movement with radius {radius}m")
+    
+    # Reset to ensure clean state
+    reset_movement()
+    
+    # Forward velocity
+    x_vel = 0.3  
+    
+    # Calculate yaw velocity based on radius and multiply by 2
+    yaw_vel = constrain_velocity(x_vel / radius) * 2
+    
+    key_data.data[2] = x_vel     
+    key_data.data[6] = yaw_vel   
+    
+    publisher.publish(key_data)
+    print(f"Moving in circle: forward velocity={x_vel}, yaw velocity={yaw_vel}")
+    
+    # Move in circle 
+    time.sleep(duration)
+    
+    # Stop
+    reset_movement()
+    print("Circular movement completed")
+
 if __name__ == '__main__':
     try:
         # First set to trot mode
         trot()
         time.sleep(2) 
         
-        # Start moving in a square pattern
+        # Start moving in a circular pattern
         while not rospy.is_shutdown():
-            # Make a square with custom velocities
-            make_square(x_vel=0.3, yaw_vel=1)
+            # Make a circle with radius 0.8
+            make_circle(radius=0.8, duration=30)
             
-
             stop()
             time.sleep(2)
             
-
             trot()
             time.sleep(2)
             
